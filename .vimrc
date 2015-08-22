@@ -20,6 +20,10 @@ Plugin 'scrooloose/nerdtree'
 Bundle 'c.vim'
 " ctrlp
 Plugin 'kien/ctrlp.vim'
+" YCM
+Plugin 'Valloric/YouCompleteMe'
+" Indent guides
+Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()
 filetype plugin indent on
 " END Vundle
@@ -70,6 +74,14 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -77,3 +89,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " CtrlP
 let g:ctrlp_working_path_mode = 0
+
+" Gist
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
+" Leader key
+let mapleader=","
+
+" Indent
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+colorscheme default
